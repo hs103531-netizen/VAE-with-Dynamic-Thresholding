@@ -81,7 +81,7 @@ VAE-with-Dynamic-Thresholding/
 | Optimizer | Adam (lr 1e-3) |
 | 학습 설정 | epochs 500, batch size 128 |
 
-Keras 공식 VAE 예제(MNIST)를 기반으로 입력 크기를 256×256으로 확장했습니다.
+Keras VAE 예제를 참고해 256×256 초음파 영상에 맞게 인코더 / 디코더를 직접 구성했습니다.
 
 ---
 

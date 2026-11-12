@@ -103,7 +103,7 @@ class VAE(keras.Model):
         return self._update_trackers(rec, kl, total)
 
     def test_step(self, data):
-        # validation_split / validation_data 를 쓸 수 있도록 추가 (노트북에는 없었음)
+        # validation_data 사용 시 검증 loss 계산
         if isinstance(data, tuple):
             data = data[0]
         rec, kl, total = self.compute_vae_losses(data, training=False)

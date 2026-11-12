@@ -174,9 +174,3 @@ python evaluate.py --test-dir data/Dataset_BUSI_with_GT/benign --mask-dir data/D
 - Keras Example — [Variational AutoEncoder](https://keras.io/examples/generative/vae/)
 - Al-Dhabyani, W., Gomaa, M., Khaled, H., & Fahmy, A. (2020).
   **Dataset of breast ultrasound images.** *Data in Brief*, 28, 104863.
-
----
-
-## 👤 개발자
-
-- **GitHub**: [hs103531-netizen](https://github.com/hs103531-netizen)

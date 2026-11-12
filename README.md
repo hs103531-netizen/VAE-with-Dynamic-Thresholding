@@ -104,20 +104,6 @@ python evaluate.py --test-dir data/Dataset_BUSI_with_GT/benign --mask-dir data/D
 
 VSCode에서는 `train.py` / `evaluate.py` 를 열고 실행(▶)하거나, `.vscode/launch.json` 에 위 인자를 넣어 디버깅할 수 있습니다.
 
-## 노트북에서 바뀐 점
-
-스크립트로 옮기면서 결과에 영향을 주는 부분 몇 가지를 바로잡았습니다.
-
-- **Dice 계산 대상 수정**: 노트북의 Dice 셀은 `predictions` 변수를 덮어쓰면서 VAE 차이 영상이 아니라
-  *원본 테스트 영상을 평균값으로 이진화한 결과*와 GT를 비교하고 있었습니다.
-  노트북의 `Mean Dice 0.0804` 는 그래서 VAE 결과가 아닙니다. 스크립트는 VAE 동적 이진화 마스크로 Dice를 계산합니다.
-- **영상–마스크 순서 매칭**: 테스트 영상은 `os.listdir`(순서 보장 없음), 마스크는 `sorted` 로 읽어 쌍이 어긋날 수 있었습니다.
-  이제 파일명으로 직접 매칭합니다.
-- Colab 전용 코드 제거(`drive.mount`, `cv2_imshow`), 경로를 명령행 인자로 변경, `plt.show()` 대신 그림 파일 저장.
-- 정의되지 않은 `history` 를 쓰던 loss 그래프 셀 → 학습 기록을 `history.json` / `loss_curve.png` 로 저장.
-- Keras 3 방식으로 정리: `keras.random.SeedGenerator` 기반 Sampling, `call()`·`test_step()` 추가, 가중치 저장/로드.
-- 노트북 앞부분의 Keras 공식 MNIST VAE 예제는 원본 노트북에 그대로 남겨 두었습니다.
-
 ## 참고
 
 - Keras example – [Variational AutoEncoder](https://keras.io/examples/generative/vae/) (fchollet)
